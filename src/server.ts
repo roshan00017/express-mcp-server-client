@@ -8,10 +8,10 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 const app = express();
 app.use(express.json());
 
-const memoryStore: string[] = []; // 🧠 memory-based storage
+const memoryStore: string[] = [];
 
 const server = new McpServer({
-  name: "gemini-server",
+  name: "mcp-server",
   version: "1.0.0",
 });
 
@@ -60,7 +60,7 @@ server.registerTool(
   {
     title: "Note Lister",
     description: "Returns all notes saved so far",
-    inputSchema: {}, 
+    inputSchema: {},
   },
   async () => {
     if (memoryStore.length === 0) {
